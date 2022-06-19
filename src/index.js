@@ -183,6 +183,7 @@ const newNumArr = numArr.filter((num) => {
 console.log(newNumArr);
 newNumArr.map((name) => console.log(name));
 
+// 条件を加工して新しい配列を生成する
 const newNameArr = nameArr.map((name) => {
   if (name === "大渕") {
     return name;
@@ -215,6 +216,6 @@ console.log(fee);
 /**
  * 「&&」は左側がtrueなら右側を返す
  */
-const numAND = null;
-const hensuu = 100 && "何か設定されました";
+const numAND = 100;
+const hensuu = numAND && "何か設定されました";
 console.log(hensuu);
