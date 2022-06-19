@@ -157,3 +157,64 @@ console.log(arr7);
 const arr8 = arr4;
 console.log(arr8);
 // 参照をコピーしてしまっているため、コピー元が変われば参照したその後も変わってしまう
+
+/**
+ * mapやfileterを用いた配列の処理
+ */
+//　従来の方法
+const nameArr = ["田中", "山田", "大渕"];
+for (let index = 0; index < nameArr.length; index++) {
+  console.log(`${index + 1}番目は${nameArr[index]}です`);
+}
+
+const nameArr2 = nameArr.map((name) => {
+  return name;
+});
+console.log(nameArr2);
+
+// 順番に変数nameが関数に渡される
+// indexも第2引数とすれば、カウントのようにできる
+nameArr.map((name, index) => console.log(`${index + 1}番目は${name}です`));
+
+const numArr = [1, 2, 3, 4, 5];
+const newNumArr = numArr.filter((num) => {
+  return num % 2 === 1;
+});
+console.log(newNumArr);
+newNumArr.map((name) => console.log(name));
+
+const newNameArr = nameArr.map((name) => {
+  if (name === "大渕") {
+    return name;
+  } else {
+    return `${name}さん`;
+  }
+});
+console.log(newNameArr);
+
+/**
+ * 三項演算子
+ */
+// 条件 ? 条件=true : 条件=false
+const num = "1300";
+const formattedNum =
+  typeof num === "number" ? num.localeString() : "数値を入力してください";
+console.log(formattedNum);
+
+const checkSum = (num1, num2) => {
+  return num1 + num2 > 100 ? "100を超えています！" : "許容範囲内です";
+};
+console.log(checkSum(100, 1));
+
+/**
+ * 「||」は左側がfalseなら右側を返す
+ */
+const numOR = null;
+const fee = numOR || "金額は未設定です";
+console.log(fee);
+/**
+ * 「&&」は左側がtrueなら右側を返す
+ */
+const numAND = null;
+const hensuu = 100 && "何か設定されました";
+console.log(hensuu);
